@@ -1,9 +1,210 @@
 /* NOTE: Make sure that when you complete your Lab, you leave a comment at the top of this file listing which new properties you used! */
 
+/* I added a transform property to toggle button where it enlarged itslef when being clicked. */
+
 :root {
   --dk-grey: #263238;
-  --hot-pink: #EC407A;
-  --yellow: #FDD835;
-  --green: #8BC34A;
-  --white: #FAFAFA;
+  --hot-pink: #ec407a;
+  --yellow: #fdd835;
+  --green: #8bc34a;
+  --white: #fafafa;
+}
+
+header {
+  padding: 0.5rem;
+  background-color: var(--dk-grey);
+  display: flex;
+}
+
+body {
+  color: var(--white);
+  font-family: "Nunito", sans-serif;
+  font-weight: 400;
+}
+
+.main-menu {
+  display: flex;
+}
+
+a {
+  color: var(--white);
+  text-decoration: none;
+}
+
+.container {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 0 6rem;
+}
+
+.first-link > a {
+  color: var(--white);
+  padding: 0 0.5rem;
+}
+
+.dropdown > li a {
+  color: var(--white);
+}
+
+ul ul li {
+  /* display: block; */
+  margin: 0;
+  padding: 0.5rem 3rem 0.5rem 1rem;
+  text-align: left;
+}
+
+svg {
+  width: 2vh;
+}
+
+.first-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+nav li {
+  padding: 1rem 4rem;
+}
+
+nav li ul {
+  display: none;
+}
+
+ul ul {
+  position: absolute;
+  text-align: left;
+  margin-top: 1rem;
+  background-color: var(--dk-grey);
+}
+
+ul li:hover > ul,
+ul li:focus-within > ul,
+ul li ul:hover {
+  visibility: visible;
+  display: block;
+  opacity: 1;
+}
+
+.main-menu li:hover > .dropdown {
+  visibility: visible;
+}
+
+nav {
+  width: 100%;
+}
+
+.toggle-btn {
+  display: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 0.8rem;
+  text-transform: lowercase;
+
+  transition: transform 0.3s ease;
+}
+
+.toggle-btn.expand {
+  transform: scale(1.2);
+}
+
+.toggle-btn:hover svg path,
+.toggle-btn:hover p {
+  color: var(--green);
+  fill: var(--green);
+}
+
+/* Hero Section */
+.hero {
+  background-image: url(../img/crowd-background.webp);
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.hero-content {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 4rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  
+}
+
+.hero h2 {
+  font-size: 2rem;
+  color: var(--dk-grey);
+}
+
+.hero p {
+  font-size: 1rem;
+  color: var(--dk-grey);
+  margin: 2rem 0;
+}
+
+.hero .btn {
+  background: rgb(131, 58, 180);
+  background: linear-gradient(
+    90deg,
+    rgba(131, 58, 180, 1) 0%,
+    rgba(253, 29, 29, 1) 50%,
+    rgba(252, 176, 69, 1) 100%
+  );
+  color: var(--white);
+  padding: 0.75rem 1.5rem;
+  border-radius: 2rem;
+}
+
+
+/* Mobile View */
+@media screen and (max-width: 950px) {
+  nav ul li {
+    display: none;
+  }
+
+  .toggle-btn {
+    display: inline-block;
+    padding-left: 12rem;
+  }
+
+  .toggle-btn svg {
+    width: 3vh;
+    align-items: center;
+  }
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .show-nav ul {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: var(--dk-grey);
+    position: absolute;
+    top: 4rem;
+    left: 0;
+    padding: 0;
+    margin: 0;
+  }
+
+  .show-nav ul li {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    text-align: left;
+  }
+
+  .show-nav ul ul {
+    position: static;
+    display: block;
+    padding-left: 0;
+  }
+
 }
